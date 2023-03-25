@@ -16,8 +16,8 @@ public class Picker {
         this.pickingStartTime = pickingStartTime;
     }
 
-    public Picker(String pickerId) {
-        this.pickerId = pickerId;
+    private  Picker() {
+
     }
 
     public Picker(String pickerId, Duration leftCapacity, LocalTime pickingStartTime) {

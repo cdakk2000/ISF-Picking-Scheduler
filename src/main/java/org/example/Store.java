@@ -64,8 +64,6 @@ public class Store {
     }
 
     public void loadStore(InputStream is) throws Exception {
-//        Scanner s = new Scanner(is).useDelimiter("\\A");
-//        String result = s.hasNext() ? s.next() : "";
         JSONObject jsonObj;
         try {
             BufferedReader bR = new BufferedReader(new InputStreamReader(is));
@@ -77,8 +75,6 @@ public class Store {
             }
             jsonObj = new JSONObject(responseStrBuilder.toString());
             List<Picker> pickers = new ArrayList<>();
-            //for (int i = 0; i < jsonObj.length(); i++) {
-            // JSONObject jsonObj = result.getJSONObject(i);
             LocalTime pickingStartTime = LocalTime.parse(jsonObj.getString("pickingStartTime"));
             LocalTime pickingEndTime = LocalTime.parse(jsonObj.getString("pickingEndTime"));
             setPickingStartTime(pickingStartTime);
@@ -90,12 +86,7 @@ public class Store {
 
             }
 
-            //}
             setPickers(pickers);
-
-            //}
-//            is.close();
-//            bR.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

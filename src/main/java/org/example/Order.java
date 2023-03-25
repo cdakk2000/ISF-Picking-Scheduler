@@ -1,15 +1,6 @@
 package org.example;
-
-import org.json.*;
-
-import java.io.*;
 import java.time.Duration;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.lang.Object;
-import java.io.InputStream;
-import java.util.Scanner;
 
 public class Order {
     private String orderId;
@@ -25,7 +16,7 @@ public class Order {
         this.completeBy = completeBy;
     }
 
-    public Order() {
+    private Order() {
     }
 
     public String getOrderId() {
