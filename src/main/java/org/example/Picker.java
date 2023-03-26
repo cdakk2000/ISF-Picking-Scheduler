@@ -2,6 +2,7 @@ package org.example;
 
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.Objects;
 
 public class Picker {
     private String pickerId;
@@ -49,5 +50,18 @@ public class Picker {
                 ", leftCapacity=" + leftCapacity +
                 ", pickingStartTime=" + pickingStartTime +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Picker picker = (Picker) o;
+        return Objects.equals(pickerId, picker.pickerId) && Objects.equals(leftCapacity, picker.leftCapacity) && Objects.equals(pickingStartTime, picker.pickingStartTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pickerId, leftCapacity, pickingStartTime);
     }
 }

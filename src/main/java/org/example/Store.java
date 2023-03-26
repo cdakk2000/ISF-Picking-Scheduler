@@ -63,9 +63,11 @@ public class Store {
                 '}';
     }
 
+    // Loads the store data from the given input stream.
     public void loadStore(InputStream is) throws Exception {
         JSONObject jsonObj;
         try {
+            // Read the data from the input stream and parse it as a JSON object.
             BufferedReader bR = new BufferedReader(new InputStreamReader(is));
             String line = "";
 
@@ -74,6 +76,8 @@ public class Store {
                 responseStrBuilder.append(line);
             }
             jsonObj = new JSONObject(responseStrBuilder.toString());
+
+            // Parse the data for pickers and store it in a list.
             List<Picker> pickers = new ArrayList<>();
             LocalTime pickingStartTime = LocalTime.parse(jsonObj.getString("pickingStartTime"));
             LocalTime pickingEndTime = LocalTime.parse(jsonObj.getString("pickingEndTime"));
@@ -86,8 +90,10 @@ public class Store {
 
             }
 
+            // Set the list of pickers for the store.
             setPickers(pickers);
         } catch (IOException e) {
+            // Print the stack trace if there is an error reading the data.
             e.printStackTrace();
         }
     }
